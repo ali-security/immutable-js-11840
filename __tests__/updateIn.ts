@@ -477,6 +477,7 @@ describe('updateIn', () => {
       const result = setIn(obj, ['profile', '__proto__', 'admin'], true);
 
       // The nested object should NOT have 'admin' accessible via prototype
+      // @ts-expect-error -- testing prototype pollution
       expect(result.profile.admin).toBeUndefined();
     });
 
